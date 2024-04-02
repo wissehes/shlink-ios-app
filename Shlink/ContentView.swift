@@ -8,14 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var vm = ShortUrlsViewModel()
+    
+    @State private var isShowingAddSheet = false
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationStack {
+            ShortUrlsOverview(vm: vm)
+                .navigationTitle("Short URLs")
+                .toolbar { self.toolbar }
+                .sheet(isPresented: $isShowingAddSheet, content: {
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
+                })
         }
-        .padding()
+    }
+    
+    var toolbar: some ToolbarContent {
+        ToolbarItem(placement: .primaryAction) {
+            Button("Add short URL", systemImage: "plus.circle") {
+                isShowingAddSheet.toggle()
+            }
+        }
     }
 }
 
