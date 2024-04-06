@@ -93,10 +93,12 @@ struct CreateShortUrlView: View {
 
 #Preview {
     @State var isOpen = true
+    let container = DataController.previewContainer
+    let server = Server.previewServer()
     
     return VStack {
         Button("open") { isOpen.toggle() }
-    }.sheet(isPresented: $isOpen, content: {
-        CreateShortUrlView(vm: .init(server: .previewServer()))
-    })
+    }.sheet(isPresented: $isOpen) {
+        CreateShortUrlView(vm: .init(server: server))
+    }.modelContainer(container)
 }
