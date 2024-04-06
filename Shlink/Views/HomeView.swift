@@ -11,7 +11,7 @@ struct HomeView: View {
     var server: Server
     
     init(server: Server) {
-        self._vm = .init(initialValue: .init(server: server))
+        self._vm = .init(initialValue: ShortUrlsViewModel(server: server))
         self.server = server
     }
     
@@ -19,14 +19,12 @@ struct HomeView: View {
     @State private var isShowingAddSheet = false
     
     var body: some View {
-        NavigationStack {
             ShortUrlsOverview(vm: vm)
                 .navigationTitle("Short URLs")
                 .toolbar { self.toolbar }
                 .sheet(isPresented: $isShowingAddSheet) {
                     CreateShortUrlView(vm: vm)
                 }
-        }
     }
     
     var toolbar: some ToolbarContent {
