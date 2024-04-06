@@ -11,19 +11,13 @@ import SwiftData
 /// Overview for all added servers
 struct ServersOverview: View {
     
+    @Binding var selectedServer: Server?
     @Query var servers: [Server]
     
     @State var showingAddServerSheet = false
     
     var body: some View {
-        List(servers) { server in
-            
-//            NavigationLink {
-//                HomeView(server: server)
-//            } label: {
-//                itemView(server)
-//            }
-
+        List(servers, selection: $selectedServer) { server in
             NavigationLink(value: server) {
                 itemView(server)
             }
@@ -35,9 +29,9 @@ struct ServersOverview: View {
                     showingAddServerSheet.toggle()
                 }
             }
-            .navigationDestination(for: Server.self) { server in
-                HomeView.init(server: server)
-            }
+//            .navigationDestination(for: Server.self) { server in
+//                HomeView.init(server: server)
+//            }
         
     }
     
@@ -54,6 +48,6 @@ struct ServersOverview: View {
     let container = DataController.previewContainer
     
     return NavigationStack {
-        ServersOverview()
+        ServersOverview(selectedServer: .constant(nil))
     }.modelContainer(container)
 }

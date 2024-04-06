@@ -9,9 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @State private var selectedServer: Server?
+    
     var body: some View {
-        NavigationStack {
-            ServersOverview()
+        NavigationSplitView {
+            ServersOverview(selectedServer: $selectedServer)
+        } detail: {
+            if let selectedServer {
+                HomeView(server: selectedServer)
+            } else {
+                Text("Pick a server")
+            }
         }
     }
     
