@@ -50,4 +50,16 @@ final class ShlinkAPI {
         
         return data
     }
+    
+    /// Delete a short URL
+    func deleteShortUrl(item: ShortURL) async throws -> String {
+        let response = try await client.request(
+            server.apiUrl + "/short-urls/\(item.shortCode)",
+            method: .delete
+        ).validate()
+            .serializingString()
+            .value
+        
+        return response
+    }
 }
