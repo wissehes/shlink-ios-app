@@ -26,7 +26,7 @@ final class ShlinkAPI {
     
     /// Get all short URLs
     func getShortUrls() async throws -> [ShortURL] {
-        let data = try await client.request(server.url + "/short-urls")
+        let data = try await client.request(server.apiUrl + "/short-urls")
             .validate()
             .serializingDecodable(ShortUrlsResponse.self)
             .value
@@ -40,7 +40,7 @@ final class ShlinkAPI {
     ///     - data: The payload to create a short URL.
     func createShortUrl(data: CreateShortURLPayload) async throws -> CreateShortURLResponse {
         let data = try await client.request(
-            server.url + "/short-urls",
+            server.apiUrl + "/short-urls",
             method: .post,
             parameters: data,
             encoder: JSONParameterEncoder.default
