@@ -1,0 +1,18 @@
+//
+//  Config.xcconfig
+//  Shlink
+//
+//  Created by Wisse Hes on 06/04/2024.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// Example config for using the Shlink API in SwiftUI previews
+
+// Using "https:/$()/" makes sure Xcode parses the URL correctly,
+// since a double slash (/) counts as a comment.
+
+PREVIEW_SERVER_URL=https:/$()/<SERVER>
+PREVIEW_SERVER_KEY=<API_KEY>
+

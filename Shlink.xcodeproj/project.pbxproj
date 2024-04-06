@@ -13,11 +13,15 @@
 		896063AD2BB09FF000400A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 896063AC2BB09FF000400A7A /* Assets.xcassets */; };
 		896063B02BB09FF000400A7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 896063AF2BB09FF000400A7A /* Preview Assets.xcassets */; };
 		896063B82BB0A28900400A7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 896063B72BB0A28900400A7A /* Alamofire */; };
-		896063BA2BB0A29600400A7A /* Shlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896063B92BB0A29600400A7A /* Shlink.swift */; };
 		89E9DB972BC19CEB00A1E11D /* CreateShortURLPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */; };
 		89E9DB992BC1A68100A1E11D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB982BC1A68100A1E11D /* Server.swift */; };
 		89E9DB9B2BC1A78700A1E11D /* ShlinkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */; };
 		89E9DB9D2BC1A8C300A1E11D /* GetShortUrlsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB9C2BC1A8C300A1E11D /* GetShortUrlsResponse.swift */; };
+		89E9DB9F2BC1A93200A1E11D /* ServersOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB9E2BC1A93200A1E11D /* ServersOverview.swift */; };
+		89E9DBA22BC1A9F900A1E11D /* AddServerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DBA12BC1A9F900A1E11D /* AddServerView.swift */; };
+		89E9DBA42BC1AB0800A1E11D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DBA32BC1AB0700A1E11D /* DataController.swift */; };
+		89E9DBAA2BC1AD0000A1E11D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DBA92BC1AD0000A1E11D /* HomeView.swift */; };
+		89E9DBAC2BC1AF1200A1E11D /* Config.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = 89E9DBAB2BC1AF1200A1E11D /* Config.xcconfig.example */; };
 		89F756C12BB4357100E77ED6 /* ShortUrlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F756C02BB4357100E77ED6 /* ShortUrlsViewModel.swift */; };
 		89F756C32BB438D300E77ED6 /* CreateShortUrlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */; };
 /* End PBXBuildFile section */
@@ -29,11 +33,17 @@
 		896063AA2BB09FEE00400A7A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		896063AC2BB09FF000400A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		896063AF2BB09FF000400A7A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		896063B92BB0A29600400A7A /* Shlink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shlink.swift; sourceTree = "<group>"; };
 		89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShortURLPayload.swift; sourceTree = "<group>"; };
 		89E9DB982BC1A68100A1E11D /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShlinkAPI.swift; sourceTree = "<group>"; };
 		89E9DB9C2BC1A8C300A1E11D /* GetShortUrlsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShortUrlsResponse.swift; sourceTree = "<group>"; };
+		89E9DB9E2BC1A93200A1E11D /* ServersOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServersOverview.swift; sourceTree = "<group>"; };
+		89E9DBA12BC1A9F900A1E11D /* AddServerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddServerView.swift; sourceTree = "<group>"; };
+		89E9DBA32BC1AB0700A1E11D /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		89E9DBA72BC1ABB200A1E11D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		89E9DBA82BC1ABE300A1E11D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		89E9DBA92BC1AD0000A1E11D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		89E9DBAB2BC1AF1200A1E11D /* Config.xcconfig.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Config.xcconfig.example; sourceTree = "<group>"; };
 		89F756C02BB4357100E77ED6 /* ShortUrlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortUrlsViewModel.swift; sourceTree = "<group>"; };
 		89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShortUrlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -53,8 +63,10 @@
 		8933F69D2BB380670007CE36 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89E9DBA02BC1A9EC00A1E11D /* Servers */,
 				8933F69E2BB380850007CE36 /* ShortUrlsOverview.swift */,
 				89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */,
+				89E9DBA92BC1AD0000A1E11D /* HomeView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -78,12 +90,14 @@
 		896063A72BB09FEE00400A7A /* Shlink */ = {
 			isa = PBXGroup;
 			children = (
+				89E9DBA82BC1ABE300A1E11D /* Info.plist */,
+				89E9DBA62BC1ABA200A1E11D /* Config */,
 				89E9DB952BC19CB800A1E11D /* Structures */,
 				89F756BF2BB4355F00E77ED6 /* ViewModels */,
 				8933F69D2BB380670007CE36 /* Views */,
-				896063B92BB0A29600400A7A /* Shlink.swift */,
 				896063A82BB09FEE00400A7A /* ShlinkApp.swift */,
 				896063AA2BB09FEE00400A7A /* ContentView.swift */,
+				89E9DBA32BC1AB0700A1E11D /* DataController.swift */,
 				896063AC2BB09FF000400A7A /* Assets.xcassets */,
 				896063AE2BB09FF000400A7A /* Preview Content */,
 			);
@@ -107,6 +121,24 @@
 				89E9DB9C2BC1A8C300A1E11D /* GetShortUrlsResponse.swift */,
 			);
 			path = Structures;
+			sourceTree = "<group>";
+		};
+		89E9DBA02BC1A9EC00A1E11D /* Servers */ = {
+			isa = PBXGroup;
+			children = (
+				89E9DB9E2BC1A93200A1E11D /* ServersOverview.swift */,
+				89E9DBA12BC1A9F900A1E11D /* AddServerView.swift */,
+			);
+			path = Servers;
+			sourceTree = "<group>";
+		};
+		89E9DBA62BC1ABA200A1E11D /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				89E9DBAB2BC1AF1200A1E11D /* Config.xcconfig.example */,
+				89E9DBA72BC1ABB200A1E11D /* Config.xcconfig */,
+			);
+			path = Config;
 			sourceTree = "<group>";
 		};
 		89F756BF2BB4355F00E77ED6 /* ViewModels */ = {
@@ -182,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				896063B02BB09FF000400A7A /* Preview Assets.xcassets in Resources */,
+				89E9DBAC2BC1AF1200A1E11D /* Config.xcconfig.example in Resources */,
 				896063AD2BB09FF000400A7A /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -194,13 +227,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				89E9DB9D2BC1A8C300A1E11D /* GetShortUrlsResponse.swift in Sources */,
+				89E9DBA42BC1AB0800A1E11D /* DataController.swift in Sources */,
+				89E9DBAA2BC1AD0000A1E11D /* HomeView.swift in Sources */,
 				896063AB2BB09FEE00400A7A /* ContentView.swift in Sources */,
 				896063A92BB09FEE00400A7A /* ShlinkApp.swift in Sources */,
-				896063BA2BB0A29600400A7A /* Shlink.swift in Sources */,
+				89E9DB9F2BC1A93200A1E11D /* ServersOverview.swift in Sources */,
 				89E9DB9B2BC1A78700A1E11D /* ShlinkAPI.swift in Sources */,
 				8933F69F2BB380850007CE36 /* ShortUrlsOverview.swift in Sources */,
 				89E9DB972BC19CEB00A1E11D /* CreateShortURLPayload.swift in Sources */,
 				89F756C12BB4357100E77ED6 /* ShortUrlsViewModel.swift in Sources */,
+				89E9DBA22BC1A9F900A1E11D /* AddServerView.swift in Sources */,
 				89E9DB992BC1A68100A1E11D /* Server.swift in Sources */,
 				89F756C32BB438D300E77ED6 /* CreateShortUrlView.swift in Sources */,
 			);
@@ -211,6 +247,7 @@
 /* Begin XCBuildConfiguration section */
 		896063B12BB09FF000400A7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 89E9DBA72BC1ABB200A1E11D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -339,6 +376,7 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shlink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -368,6 +406,7 @@
 				DEVELOPMENT_TEAM = U3CH3X8GK4;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Shlink/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
