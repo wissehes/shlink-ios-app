@@ -12,6 +12,7 @@ struct ShlinkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .modelContainer(for: Server.self)
         }
     }
 }
