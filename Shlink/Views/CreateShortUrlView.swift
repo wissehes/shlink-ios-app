@@ -97,6 +97,6 @@ struct CreateShortUrlView: View {
     return VStack {
         Button("open") { isOpen.toggle() }
     }.sheet(isPresented: $isOpen, content: {
-        CreateShortUrlView(vm: .init())
+        CreateShortUrlView(vm: .init(server: .previewServer()))
     })
 }

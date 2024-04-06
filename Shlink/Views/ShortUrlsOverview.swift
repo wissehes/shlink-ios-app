@@ -35,5 +35,5 @@ struct ShortUrlsOverview: View {
 }
 
 #Preview {
-    ShortUrlsOverview(vm: .init())
+    ShortUrlsOverview(vm: .init(server: .previewServer()))
 }
