@@ -27,4 +27,12 @@ import SwiftUI
         
         self.isLoading = false
     }
+    
+    func createShortUrl(data: CreateShortURLPayload) async throws {
+        // Create the short url
+        let data = try await Shlink.shared.createShortUrl(data: data)
+        
+        // Refresh the list of short urls
+        await self.fetch()
+    }
 }

@@ -18,9 +18,9 @@ struct ContentView: View {
             ShortUrlsOverview(vm: vm)
                 .navigationTitle("Short URLs")
                 .toolbar { self.toolbar }
-                .sheet(isPresented: $isShowingAddSheet, content: {
-                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Content@*/Text("Sheet Content")/*@END_MENU_TOKEN@*/
-                })
+                .sheet(isPresented: $isShowingAddSheet) {
+                    CreateShortUrlView(vm: vm)
+                }
         }
     }
     
