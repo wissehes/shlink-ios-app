@@ -63,8 +63,8 @@
 		8933F69D2BB380670007CE36 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89E9DBAD2BC1D32000A1E11D /* ShortUrlsOverview */,
 				89E9DBA02BC1A9EC00A1E11D /* Servers */,
-				8933F69E2BB380850007CE36 /* ShortUrlsOverview.swift */,
 				89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */,
 				89E9DBA92BC1AD0000A1E11D /* HomeView.swift */,
 			);
@@ -139,6 +139,14 @@
 				89E9DBA72BC1ABB200A1E11D /* Config.xcconfig */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		89E9DBAD2BC1D32000A1E11D /* ShortUrlsOverview */ = {
+			isa = PBXGroup;
+			children = (
+				8933F69E2BB380850007CE36 /* ShortUrlsOverview.swift */,
+			);
+			path = ShortUrlsOverview;
 			sourceTree = "<group>";
 		};
 		89F756BF2BB4355F00E77ED6 /* ViewModels */ = {

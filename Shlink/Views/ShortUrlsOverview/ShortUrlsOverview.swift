@@ -8,19 +8,18 @@
 import SwiftUI
 
 struct ShortUrlsOverview: View {
-
+    
     var vm: ShortUrlsViewModel
-
+    
     var body: some View {
         Group {
             if vm.isLoading {
                 ProgressView("Loading...")
             } else if let items = vm.items {
-                List(items, id: \.shortCode) { item in
-                    rowItem(item)
-                        .swipeActions {
-                            Button("Delete", systemImage: "trash", role: .destructive) { }
-                        }
+                List {
+                    ForEach(items, id: \.shortCode) { item in
+                        ShortUrlItem(item: item, vm: vm)
+                    }
                 }
             } else {
                 ContentUnavailableView(
@@ -32,22 +31,53 @@ struct ShortUrlsOverview: View {
         }.task { await vm.fetch() }
             .refreshable { await vm.fetch() }
     }
-    
-    func rowItem(_ item: ShlinkAPI.ShortURL) -> some View {
-        HStack {
-            VStack(alignment: .leading) {
-                Text(item.title ?? item.shortCode)
-                    .lineLimit(1)
-                    .bold()
-                Text(item.longURL)
-                    .lineLimit(1)
+}
+
+extension ShortUrlsOverview {
+    struct ShortUrlItem: View {
+        var item: ShlinkAPI.ShortURL
+        var vm: ShortUrlsViewModel
+        
+        @State private var deleteConfirmationShowing = false
+        
+        private func delete() {
+            withAnimation {
+                vm.items = vm.items?.filter { $0.shortCode != item.shortCode }
             }
             
-            Spacer()
-            
-            Text("**\(item.visitsCount, format: .number)**\n visits")
-                .multilineTextAlignment(.center)
+            Task {
+                let _ = try? await vm.server.api.deleteShortUrl(item: item)
+                await vm.fetch()
+            }
         }
+        
+        var body: some View {
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(item.title ?? item.shortCode)
+                        .lineLimit(1)
+                        .bold()
+                    Text(item.longURL)
+                        .lineLimit(1)
+                }
+                
+                Spacer()
+                
+                Text("**\(item.visitsCount, format: .number)**\n visits")
+                    .multilineTextAlignment(.center)
+            }.swipeActions {
+                Button("Delete", systemImage: "trash") {
+                    deleteConfirmationShowing = true
+                }.tint(.red)
+            }
+            .confirmationDialog(
+                "Are you sure you want to delete this short URL?",
+                isPresented: $deleteConfirmationShowing
+            ) {
+                Button("Delete", role: .destructive) { delete() }
+            }
+        }
+        
     }
 }
 
