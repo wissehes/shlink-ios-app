@@ -11,11 +11,16 @@ struct ContentView: View {
     
     var body: some View {
         NavigationStack {
+            ServersOverview()
         }
     }
     
 }
 
 #Preview {
-    ContentView()
+    let container = DataController.previewContainer
+    
+    return ContentView()
+        .modelContainer(container)
+        
 }
