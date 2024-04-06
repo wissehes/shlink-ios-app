@@ -15,6 +15,9 @@
 		896063B82BB0A28900400A7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 896063B72BB0A28900400A7A /* Alamofire */; };
 		896063BA2BB0A29600400A7A /* Shlink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 896063B92BB0A29600400A7A /* Shlink.swift */; };
 		89E9DB972BC19CEB00A1E11D /* CreateShortURLPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */; };
+		89E9DB992BC1A68100A1E11D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB982BC1A68100A1E11D /* Server.swift */; };
+		89E9DB9B2BC1A78700A1E11D /* ShlinkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */; };
+		89E9DB9D2BC1A8C300A1E11D /* GetShortUrlsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB9C2BC1A8C300A1E11D /* GetShortUrlsResponse.swift */; };
 		89F756C12BB4357100E77ED6 /* ShortUrlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F756C02BB4357100E77ED6 /* ShortUrlsViewModel.swift */; };
 		89F756C32BB438D300E77ED6 /* CreateShortUrlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */; };
 /* End PBXBuildFile section */
@@ -28,6 +31,9 @@
 		896063AF2BB09FF000400A7A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		896063B92BB0A29600400A7A /* Shlink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shlink.swift; sourceTree = "<group>"; };
 		89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShortURLPayload.swift; sourceTree = "<group>"; };
+		89E9DB982BC1A68100A1E11D /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
+		89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShlinkAPI.swift; sourceTree = "<group>"; };
+		89E9DB9C2BC1A8C300A1E11D /* GetShortUrlsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetShortUrlsResponse.swift; sourceTree = "<group>"; };
 		89F756C02BB4357100E77ED6 /* ShortUrlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortUrlsViewModel.swift; sourceTree = "<group>"; };
 		89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShortUrlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,7 +101,10 @@
 		89E9DB952BC19CB800A1E11D /* Structures */ = {
 			isa = PBXGroup;
 			children = (
+				89E9DB982BC1A68100A1E11D /* Server.swift */,
+				89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */,
 				89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */,
+				89E9DB9C2BC1A8C300A1E11D /* GetShortUrlsResponse.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -184,12 +193,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89E9DB9D2BC1A8C300A1E11D /* GetShortUrlsResponse.swift in Sources */,
 				896063AB2BB09FEE00400A7A /* ContentView.swift in Sources */,
 				896063A92BB09FEE00400A7A /* ShlinkApp.swift in Sources */,
 				896063BA2BB0A29600400A7A /* Shlink.swift in Sources */,
+				89E9DB9B2BC1A78700A1E11D /* ShlinkAPI.swift in Sources */,
 				8933F69F2BB380850007CE36 /* ShortUrlsOverview.swift in Sources */,
 				89E9DB972BC19CEB00A1E11D /* CreateShortURLPayload.swift in Sources */,
 				89F756C12BB4357100E77ED6 /* ShortUrlsViewModel.swift in Sources */,
+				89E9DB992BC1A68100A1E11D /* Server.swift in Sources */,
 				89F756C32BB438D300E77ED6 /* CreateShortUrlView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

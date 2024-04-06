@@ -24,4 +24,5 @@ import SwiftData
         self.url = url
         self.apiKey = apiKey
     }
+    
 }
