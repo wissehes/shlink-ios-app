@@ -68,7 +68,7 @@ extension Shlink {
         let tags: [String]
 //        let meta: Meta
 //        let domain: JSONNull?
-        let title: String
+        let title: String?
         let crawlable, forwardQuery: Bool
 
         enum CodingKeys: String, CodingKey {
