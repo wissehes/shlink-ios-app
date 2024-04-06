@@ -25,7 +25,24 @@ import SwiftData
         self.apiKey = apiKey
     }
     
+    var apiUrl: String {
+        return url + "/rest/v3"
+    }
+    
     var api: ShlinkAPI {
         ShlinkAPI(server: self)
+    }
+}
+
+extension Server {
+    static func previewServer() -> Server {
+        guard let url = Bundle.main.object(forInfoDictionaryKey: "PREVIEW_SERVER_URL") as? String else {
+            fatalError("No PREVIEW_SERVER_URL found in the bundle.")
+        }
+        guard let key = Bundle.main.object(forInfoDictionaryKey: "PREVIEW_SERVER_KEY") as? String else {
+            fatalError("No PREVIEW_SERVER_KEY found in the bundle.")
+        }
+        
+        return Server(name: "Preview Server", url: url, apiKey: key)
     }
 }
