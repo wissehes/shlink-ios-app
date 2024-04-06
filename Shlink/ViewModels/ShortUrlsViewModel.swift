@@ -9,7 +9,13 @@ import Foundation
 import SwiftUI
 
 @Observable final class ShortUrlsViewModel {
-    var items: [Shlink.ShortURL]?
+    var server: Server
+    
+    init(server: Server) {
+        self.server = server
+    }
+    
+    var items: [ShlinkAPI.ShortURL]?
     
     var isLoading = true
     var error: Error?
@@ -17,7 +23,7 @@ import SwiftUI
     /// Get the short URLs from the server
     func fetch() async {
         do {
-            let data = try await Shlink.shared.getShortUrls()
+            let data = try await server.api.getShortUrls()
             self.items = data
         } catch {
             debugPrint(error)
@@ -30,7 +36,7 @@ import SwiftUI
     
     func createShortUrl(data: CreateShortURLPayload) async throws {
         // Create the short url
-        let data = try await Shlink.shared.createShortUrl(data: data)
+        let data = try await server.api.createShortUrl(data: data)
         
         // Refresh the list of short urls
         await self.fetch()

@@ -25,4 +25,7 @@ import SwiftData
         self.apiKey = apiKey
     }
     
+    var api: ShlinkAPI {
+        ShlinkAPI(server: self)
+    }
 }
