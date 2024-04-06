@@ -22,21 +22,24 @@ import SwiftUI
     
     /// Get the short URLs from the server
     func fetch() async {
+        defer {
+            withAnimation { self.isLoading = false }
+        }
+        
         do {
             let data = try await server.api.getShortUrls()
             self.items = data
+            self.error = nil
         } catch {
             debugPrint(error)
             self.error = error
             self.items = nil
         }
-        
-        self.isLoading = false
     }
     
     func createShortUrl(data: CreateShortURLPayload) async throws {
         // Create the short url
-        let data = try await server.api.createShortUrl(data: data)
+        let _ = try await server.api.createShortUrl(data: data)
         
         // Refresh the list of short urls
         await self.fetch()
