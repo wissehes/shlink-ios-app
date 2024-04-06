@@ -12,6 +12,7 @@ final class ShlinkAPI {
     
     let server: Server
     let client: Session
+    let decoder: JSONDecoder = .init()
     
     init(server: Server) {
         // Set server property
@@ -22,13 +23,16 @@ final class ShlinkAPI {
         configuration.headers.add(.accept("application/json"))
         configuration.headers.add(name: "X-Api-Key", value: server.apiKey)
         self.client =  Session(configuration: configuration)
+        
+        // Set the JSON date decoding strategy
+        self.decoder.dateDecodingStrategy = .iso8601
     }
     
     /// Get all short URLs
     func getShortUrls() async throws -> [ShortURL] {
         let data = try await client.request(server.apiUrl + "/short-urls")
             .validate()
-            .serializingDecodable(ShortUrlsResponse.self)
+            .serializingDecodable(ShortUrlsResponse.self, decoder: self.decoder)
             .value
         
         return data.shortUrls.data
