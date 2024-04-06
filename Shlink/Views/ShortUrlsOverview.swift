@@ -16,9 +16,11 @@ struct ShortUrlsOverview: View {
             ForEach(vm.items ?? [], id: \.shortCode) { item in
                 HStack {
                     VStack(alignment: .leading) {
-                        Text(item.title)
+                        Text(item.title ?? item.shortCode)
+                            .lineLimit(1)
                             .bold()
-                        Text(item.shortURL)
+                        Text(item.longURL)
+                            .lineLimit(1)
                     }
                     
                     Spacer()
