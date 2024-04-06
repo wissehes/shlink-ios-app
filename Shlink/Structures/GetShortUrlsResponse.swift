@@ -23,13 +23,17 @@ extension ShlinkAPI {
         let shortCode: String
         let shortURL: String
         let longURL: String
-        let dateCreated: String
+        let dateCreated: Date
         let visitsCount: Int
         let tags: [String]
 //        let meta: Meta
 //        let domain: JSONNull?
         let title: String?
         let crawlable, forwardQuery: Bool
+        
+        var qrCodeURL: URL? {
+            URL(string: shortURL + "/qr-code")
+        }
 
         enum CodingKeys: String, CodingKey {
             case shortCode
@@ -46,3 +50,16 @@ extension ShlinkAPI {
     }
 }
 
+extension ShlinkAPI.ShortURL {
+    static let example = ShlinkAPI.ShortURL(
+        shortCode: "QRMqJ",
+        shortURL: "https://test.com/QRMqJ",
+        longURL: "https://google.com",
+        dateCreated: .now,
+        visitsCount: 5,
+        tags: [],
+        title: nil,
+        crawlable: false,
+        forwardQuery: true
+    )
+}
