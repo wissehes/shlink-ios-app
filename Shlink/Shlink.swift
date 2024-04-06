@@ -31,8 +31,17 @@ final class Shlink {
         return data.shortUrls.data
     }
     
-    func addShortUrl() async throws {
+    func createShortUrl(data: CreateShortURLPayload) async throws -> CreateShortURLResponse {
+        let data = try await client.request(
+            Self.baseUrl + "/short-urls",
+            method: .post,
+            parameters: data,
+            encoder: JSONParameterEncoder.default
+        ).validate()
+            .serializingDecodable(CreateShortURLResponse.self)
+            .value
         
+        return data
     }
     
 }
