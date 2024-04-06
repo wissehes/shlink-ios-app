@@ -26,7 +26,11 @@ import SwiftData
     }
     
     var apiUrl: String {
-        return url + "/rest/v3"
+        if url.hasSuffix("/") {
+            return url + "rest/v3"
+        } else {
+            return url + "/rest/v3"
+        }
     }
     
     var api: ShlinkAPI {
