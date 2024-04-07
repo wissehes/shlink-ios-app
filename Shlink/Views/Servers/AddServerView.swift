@@ -32,7 +32,7 @@ struct AddServerView: View {
     var body: some View {
         NavigationStack {
             Form {
-                Section {
+                Section("Server") {
                     TextField("Name", text: $server.name)
                     TextField("Server URL", text: $server.url)
                         .keyboardType(.URL)
@@ -43,7 +43,7 @@ struct AddServerView: View {
                         .textContentType(.password)
                 }
                 
-                Section {
+                Section("Test server") {
                     HStack {
                         Button("Test server") {
                             Task { await self.testServer() }
@@ -56,6 +56,7 @@ struct AddServerView: View {
                 }
                 
             }.navigationTitle("Add server")
+                .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {
                         Button("Save") {
