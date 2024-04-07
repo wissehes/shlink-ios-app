@@ -69,7 +69,6 @@
 			children = (
 				89E9DBAD2BC1D32000A1E11D /* ShortUrlsOverview */,
 				89E9DBA02BC1A9EC00A1E11D /* Servers */,
-				89E9DBB02BC1D7C900A1E11D /* ShortURLDetailView.swift */,
 				89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */,
 				89E9DBA92BC1AD0000A1E11D /* HomeView.swift */,
 			);
@@ -151,6 +150,7 @@
 			isa = PBXGroup;
 			children = (
 				8933F69E2BB380850007CE36 /* ShortUrlsOverview.swift */,
+				89E9DBB02BC1D7C900A1E11D /* ShortURLDetailView.swift */,
 			);
 			path = ShortUrlsOverview;
 			sourceTree = "<group>";
