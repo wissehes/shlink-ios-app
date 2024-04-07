@@ -6,10 +6,11 @@
 //
 
 import SwiftUI
-
+import SwiftData
 struct ContentView: View {
     
     @State private var selectedServer: Server?
+    @Query private var servers: [Server]
     
     var body: some View {
         NavigationSplitView {
@@ -20,6 +21,14 @@ struct ContentView: View {
             } else {
                 Text("Pick a server")
             }
+        }.onAppear {
+            // Select the first server in the list on appear
+            guard
+                selectedServer == nil,
+                let firstServer = servers.first
+            else { return }
+            
+            self.selectedServer = firstServer
         }
     }
     
@@ -30,5 +39,5 @@ struct ContentView: View {
     
     return ContentView()
         .modelContainer(container)
-        
+    
 }
