@@ -11,14 +11,68 @@ struct ShortUrlsOverview: View {
     
     var vm: ShortUrlsViewModel
     
+    @Binding var addItemSheetOpened: Bool
+    
+    @ViewBuilder
+    var statistics: some View {
+        ScrollView(.horizontal) {
+            HStack {
+                Button {
+                    addItemSheetOpened.toggle()
+                } label: {
+                    VStack(alignment: .center, spacing: 5) {
+                        Image(systemName: "plus.circle")
+                            .foregroundStyle(.white)
+                            .bold()
+                            .font(.system(size: 20))
+                        
+                        Text("Add")
+                            .foregroundStyle(.white)
+                            .font(.system(size: 16))
+                            .bold()
+                    }
+                    .frame(width: 80, height: 80)
+                    .background(Color.accentColor)
+                    .clipShape(.rect(cornerRadius: 10))
+                }
+                    
+                
+                if let visits = vm.visits {
+                    ListScrollItem(
+                        title: "Visits",
+                        content: Text(visits.visitsCount, format: .number)
+                    )
+                    
+                    ListScrollItem(
+                        title: "Orphan visits",
+                        content: Text(visits.orphanVisitsCount, format: .number)
+                    )
+                    
+                }
+                
+                if let items = vm.items {
+                    ListScrollItem(title: "Short URLs", content: Text(items.count, format: .number))
+                }
+            }
+        }
+    }
+    
     var body: some View {
         Group {
             if vm.isLoading {
                 ProgressView("Loading...")
             } else if let items = vm.items {
                 List {
-                    ForEach(items, id: \.shortCode) { item in
-                        ShortUrlItem(item: item, vm: vm)
+                    
+                    Section("Stats") {
+                        statistics
+                            .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                    }.listRowBackground(Color.clear)
+                    
+                    Section("Links") {
+                        ForEach(items, id: \.shortCode) { item in
+                            ShortUrlItem(item: item, vm: vm)
+                        }
                     }
                 }
             } else {
@@ -81,9 +135,34 @@ extension ShortUrlsOverview {
     }
 }
 
+struct ListScrollItem: View {
+    
+    var title: String
+    var content: Text
+    
+    var body: some View {
+        VStack(alignment: .center, spacing: 10) {
+            Text(title)
+                .font(.system(size: 16))
+                .bold()
+                .textCase(.uppercase)
+                .foregroundStyle(.secondary)
+            
+            content
+                .font(.title2)
+                .fontDesign(.rounded)
+                .bold()
+        }.padding()
+            .frame(height: 80)
+            .frame(minWidth: 80)
+            .background(.background)
+            .clipShape(.rect(cornerRadius: 10))
+    }
+}
+
 #Preview {
     let container = DataController.previewContainer
     
-    return ShortUrlsOverview(vm: .init(server: .previewServer()))
+    return ShortUrlsOverview(vm: .init(server: .previewServer()), addItemSheetOpened: .constant(false))
         .modelContainer(container)
 }

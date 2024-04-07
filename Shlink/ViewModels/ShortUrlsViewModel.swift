@@ -10,12 +10,13 @@ import SwiftUI
 
 @Observable final class ShortUrlsViewModel {
     var server: Server
-    
     init(server: Server) {
         self.server = server
     }
     
     var items: [ShlinkAPI.ShortURL]?
+    
+    var visits: ShlinkAPI.Visits?
     
     var isLoading = true
     var error: Error?
@@ -30,10 +31,22 @@ import SwiftUI
             let data = try await server.api.getShortUrls()
             self.items = data
             self.error = nil
+            
         } catch {
             debugPrint(error)
             self.error = error
             self.items = nil
+        }
+        
+        await self.fetchGeneralInfo()
+    }
+    
+    func fetchGeneralInfo() async {
+        do {
+            let visits = try await server.api.getVisits()
+            withAnimation { self.visits = visits }
+        } catch {
+            debugPrint(error)
         }
     }
     

@@ -19,7 +19,7 @@ struct HomeView: View {
     @State private var isShowingAddSheet = false
     
     var body: some View {
-            ShortUrlsOverview(vm: vm)
+            ShortUrlsOverview(vm: vm, addItemSheetOpened: $isShowingAddSheet)
                 .navigationTitle("Short URLs")
                 .toolbar { self.toolbar }
                 .sheet(isPresented: $isShowingAddSheet) {
