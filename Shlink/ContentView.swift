@@ -15,12 +15,18 @@ struct ContentView: View {
     var body: some View {
         NavigationSplitView {
             ServersOverview(selectedServer: $selectedServer)
-        } detail: {
+        } content: {
             if let selectedServer {
                 HomeView(server: selectedServer)
+                    .listStyle(.insetGrouped)
+                    .navigationDestination(for: ShlinkAPI.ShortURL.self) { link in
+                        ShortURLDetailView(item: link)
+                    }
             } else {
                 Text("Pick a server")
             }
+        } detail: {
+            Text("Hi!")
         }.onAppear {
             // Select the first server in the list on appear
             guard
