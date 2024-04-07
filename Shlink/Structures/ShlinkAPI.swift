@@ -28,6 +28,8 @@ final class ShlinkAPI {
         self.decoder.dateDecodingStrategy = .iso8601
     }
     
+    // MARK: Short URLs
+    
     /// Get all short URLs
     func getShortUrls() async throws -> [ShortURL] {
         let data = try await client.request(server.apiUrl + "/short-urls")
@@ -65,5 +67,17 @@ final class ShlinkAPI {
             .value
         
         return response
+    }
+    
+    // MARK: Server stats
+    
+    /// Get general visits stats not linked to one specific short URL.
+    func getVisits() async throws -> Visits {
+        let data = try await client.request(server.apiUrl + "/visits")
+            .validate()
+            .serializingDecodable(GetVisitsResponse.self)
+            .value
+        
+        return data.visits
     }
 }
