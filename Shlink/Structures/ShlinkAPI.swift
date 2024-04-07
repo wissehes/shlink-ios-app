@@ -32,7 +32,11 @@ final class ShlinkAPI {
     
     /// Get all short URLs
     func getShortUrls() async throws -> [ShortURL] {
-        let data = try await client.request(server.apiUrl + "/short-urls")
+        let parameters: Parameters = [
+            "itemsPerPage": 100
+        ]
+        
+        let data = try await client.request(server.apiUrl + "/short-urls", parameters: parameters)
             .validate()
             .serializingDecodable(ShortUrlsResponse.self, decoder: self.decoder)
             .value
