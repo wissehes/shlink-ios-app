@@ -67,11 +67,14 @@ struct ShortUrlsOverview: View {
                     Section("Stats") {
                         statistics
                             .listRowInsets(.init(top: 0, leading: 0, bottom: 0, trailing: 0))
+                            .listRowSeparator(.hidden)
                     }.listRowBackground(Color.clear)
                     
                     Section("Links") {
                         ForEach(items, id: \.shortCode) { item in
-                            ShortUrlItem(item: item, vm: vm)
+                            NavigationLink(value: item) {
+                                ShortUrlItem(item: item, vm: vm)
+                            }
                         }
                     }
                 }
@@ -111,7 +114,7 @@ extension ShortUrlsOverview {
                     Text(item.title ?? item.shortCode)
                         .lineLimit(1)
                         .bold()
-                    Text(item.longURL)
+                    Text(item.longURL?.absoluteString ?? "")
                         .lineLimit(1)
                 }
                 
@@ -165,4 +168,5 @@ struct ListScrollItem: View {
     
     return ShortUrlsOverview(vm: .init(server: .previewServer()), addItemSheetOpened: .constant(false))
         .modelContainer(container)
+        .listStyle(.sidebar)
 }

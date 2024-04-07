@@ -19,10 +19,10 @@ extension ShlinkAPI {
     }
     
     // MARK: - ShortURL
-    struct ShortURL: Codable {
+    struct ShortURL: Codable, Hashable {
         let shortCode: String
-        let shortURL: String
-        let longURL: String
+        let shortURL: URL?
+        let longURL: URL?
         let dateCreated: Date
         let visitsCount: Int
         let tags: [String]
@@ -32,7 +32,7 @@ extension ShlinkAPI {
         let crawlable, forwardQuery: Bool
         
         var qrCodeURL: URL? {
-            URL(string: shortURL + "/qr-code")
+            shortURL?.appending(path: "/qr-code")
         }
 
         enum CodingKeys: String, CodingKey {
@@ -53,8 +53,8 @@ extension ShlinkAPI {
 extension ShlinkAPI.ShortURL {
     static let example = ShlinkAPI.ShortURL(
         shortCode: "QRMqJ",
-        shortURL: "https://test.com/QRMqJ",
-        longURL: "https://google.com",
+        shortURL: URL(string: "https://test.com/QRMqJ"),
+        longURL: URL(string: "https://google.com"),
         dateCreated: .now,
         visitsCount: 5,
         tags: [],
