@@ -13,6 +13,7 @@
 		896063AD2BB09FF000400A7A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 896063AC2BB09FF000400A7A /* Assets.xcassets */; };
 		896063B02BB09FF000400A7A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 896063AF2BB09FF000400A7A /* Preview Assets.xcassets */; };
 		896063B82BB0A28900400A7A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 896063B72BB0A28900400A7A /* Alamofire */; };
+		8962F6F62BC2BE66007770A4 /* GetVisitsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8962F6F52BC2BE66007770A4 /* GetVisitsResponse.swift */; };
 		89E9DB972BC19CEB00A1E11D /* CreateShortURLPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */; };
 		89E9DB992BC1A68100A1E11D /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB982BC1A68100A1E11D /* Server.swift */; };
 		89E9DB9B2BC1A78700A1E11D /* ShlinkAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */; };
@@ -22,6 +23,7 @@
 		89E9DBA42BC1AB0800A1E11D /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DBA32BC1AB0700A1E11D /* DataController.swift */; };
 		89E9DBAA2BC1AD0000A1E11D /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DBA92BC1AD0000A1E11D /* HomeView.swift */; };
 		89E9DBAC2BC1AF1200A1E11D /* Config.xcconfig.example in Resources */ = {isa = PBXBuildFile; fileRef = 89E9DBAB2BC1AF1200A1E11D /* Config.xcconfig.example */; };
+		89E9DBB12BC1D7C900A1E11D /* ShortURLDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89E9DBB02BC1D7C900A1E11D /* ShortURLDetailView.swift */; };
 		89F756C12BB4357100E77ED6 /* ShortUrlsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F756C02BB4357100E77ED6 /* ShortUrlsViewModel.swift */; };
 		89F756C32BB438D300E77ED6 /* CreateShortUrlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */; };
 /* End PBXBuildFile section */
@@ -33,6 +35,7 @@
 		896063AA2BB09FEE00400A7A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		896063AC2BB09FF000400A7A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		896063AF2BB09FF000400A7A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		8962F6F52BC2BE66007770A4 /* GetVisitsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVisitsResponse.swift; sourceTree = "<group>"; };
 		89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShortURLPayload.swift; sourceTree = "<group>"; };
 		89E9DB982BC1A68100A1E11D /* Server.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShlinkAPI.swift; sourceTree = "<group>"; };
@@ -44,6 +47,7 @@
 		89E9DBA82BC1ABE300A1E11D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		89E9DBA92BC1AD0000A1E11D /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		89E9DBAB2BC1AF1200A1E11D /* Config.xcconfig.example */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Config.xcconfig.example; sourceTree = "<group>"; };
+		89E9DBB02BC1D7C900A1E11D /* ShortURLDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortURLDetailView.swift; sourceTree = "<group>"; };
 		89F756C02BB4357100E77ED6 /* ShortUrlsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortUrlsViewModel.swift; sourceTree = "<group>"; };
 		89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateShortUrlView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -65,6 +69,7 @@
 			children = (
 				89E9DBAD2BC1D32000A1E11D /* ShortUrlsOverview */,
 				89E9DBA02BC1A9EC00A1E11D /* Servers */,
+				89E9DBB02BC1D7C900A1E11D /* ShortURLDetailView.swift */,
 				89F756C22BB438D300E77ED6 /* CreateShortUrlView.swift */,
 				89E9DBA92BC1AD0000A1E11D /* HomeView.swift */,
 			);
@@ -119,6 +124,7 @@
 				89E9DB9A2BC1A78700A1E11D /* ShlinkAPI.swift */,
 				89E9DB962BC19CEB00A1E11D /* CreateShortURLPayload.swift */,
 				89E9DB9C2BC1A8C300A1E11D /* GetShortUrlsResponse.swift */,
+				8962F6F52BC2BE66007770A4 /* GetVisitsResponse.swift */,
 			);
 			path = Structures;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 			files = (
 				89E9DB9D2BC1A8C300A1E11D /* GetShortUrlsResponse.swift in Sources */,
 				89E9DBA42BC1AB0800A1E11D /* DataController.swift in Sources */,
+				89E9DBB12BC1D7C900A1E11D /* ShortURLDetailView.swift in Sources */,
 				89E9DBAA2BC1AD0000A1E11D /* HomeView.swift in Sources */,
 				896063AB2BB09FEE00400A7A /* ContentView.swift in Sources */,
 				896063A92BB09FEE00400A7A /* ShlinkApp.swift in Sources */,
@@ -247,6 +254,7 @@
 				89E9DBA22BC1A9F900A1E11D /* AddServerView.swift in Sources */,
 				89E9DB992BC1A68100A1E11D /* Server.swift in Sources */,
 				89F756C32BB438D300E77ED6 /* CreateShortUrlView.swift in Sources */,
+				8962F6F62BC2BE66007770A4 /* GetVisitsResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
