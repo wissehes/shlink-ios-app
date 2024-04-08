@@ -27,12 +27,22 @@ struct CreateShortUrlView: View {
             Form {
                 
                 Section("Main") {
-                    TextField("URL to be shortened", text: $urlInput)
-                        .keyboardType(.URL)
-                        .textInputAutocapitalization(.never)
+                    HStack {
+                        Label("URL to be shortened", systemImage: "link")
+                            .labelStyle(.iconOnly)
+                        
+                        TextField("URL to be shortened", text: $urlInput)
+                            .keyboardType(.URL)
+                            .textInputAutocapitalization(.never)
+                    }
                     
-                    TextField("Tags", text: $tags)
-                        .textInputAutocapitalization(.never)
+                    HStack {
+                        Label("Tags", systemImage: "tag")
+                            .labelStyle(.iconOnly)
+                        
+                        TextField("Tags", text: $tags)
+                            .textInputAutocapitalization(.never)
+                    }
                 }
                 
                 Section("Details") {
