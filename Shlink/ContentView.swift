@@ -16,15 +16,17 @@ struct ContentView: View {
         NavigationSplitView {
             ServersOverview(selectedServer: $selectedServer)
         } content: {
-            if let selectedServer {
-                HomeView(server: selectedServer)
-                    .listStyle(.insetGrouped)
-                    .navigationDestination(for: ShlinkAPI.ShortURL.self) { link in
-                        ShortURLDetailView(item: link)
-                    }
-            } else {
-                Text("Pick a server")
-            }
+            Group {
+                if let selectedServer {
+                    HomeView(server: selectedServer)
+                        .listStyle(.insetGrouped)
+                        .navigationDestination(for: ShlinkAPI.ShortURL.self) { link in
+                            ShortURLDetailView(item: link)
+                        }
+                } else {
+                    Text("Pick a server")
+                }
+            }//.navigationSplitViewColumnWidth(500)
         } detail: {
             Text("Hi!")
         }.onAppear {
@@ -35,7 +37,7 @@ struct ContentView: View {
             else { return }
             
             self.selectedServer = firstServer
-        }
+        }.environment(selectedServer)
     }
     
 }
