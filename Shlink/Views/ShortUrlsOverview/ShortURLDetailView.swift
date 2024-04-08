@@ -11,6 +11,7 @@ struct ShortURLDetailView: View {
     var item: ShlinkAPI.ShortURL
     
     @Environment(\.dismiss) private var dismiss
+    @Environment(Server.self) var server
     
     @State private var showingDeleteConfirmation = false
     @State private var showingQRCodeOverlay = false
@@ -76,7 +77,8 @@ struct ShortURLDetailView: View {
             }
             
             Section("Statistics") {
-                
+                VisitsView(url: item, server: server)
+                    .padding()
             }
         }.navigationTitle("Short URL")
     }
@@ -87,7 +89,10 @@ struct ShortURLDetailView: View {
 }
 
 #Preview {
-    NavigationStack {
+    let container = DataController.previewContainer
+    
+    return NavigationStack {
         ShortURLDetailView(item: .example)
-    }
+            .environment(Server.previewServer())
+    }.modelContainer(container)
 }
