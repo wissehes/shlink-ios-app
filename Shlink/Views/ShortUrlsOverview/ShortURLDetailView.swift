@@ -15,6 +15,8 @@ struct ShortURLDetailView: View {
     @State private var showingDeleteConfirmation = false
     @State private var showingQRCodeOverlay = false
     
+    @State private var showingFullLongUrl = false
+    
     private var actions: some View {
         ScrollView(.horizontal) {
             HStack {
@@ -55,11 +57,27 @@ struct ShortURLDetailView: View {
     
     var body: some View {
         List {
+            if let url = item.shortURL?.absoluteString {
+                Label(url, systemImage: "link")
+                    .accessibilityLabel("Short URL: \(url)")
+            }
+            
+            if let url = item.longURL?.absoluteString {
+                Label(url, systemImage: "arrow.right")
+                    .accessibilityLabel("Long URL: \(url)")
+                    .lineLimit(showingFullLongUrl ? nil : 1)
+                    .onTapGesture {
+                        showingFullLongUrl.toggle()
+                    }
+            }
+            
             Section("Actions") {
                 actions
             }
             
-            
+            Section("Statistics") {
+                
+            }
         }.navigationTitle("Short URL")
     }
     
