@@ -73,6 +73,26 @@ final class ShlinkAPI {
         return response
     }
     
+    func getVisits(for item: ShortURL) async throws -> [Visit] {
+        var thirtyDaysAgo = Date.now
+        thirtyDaysAgo.addTimeInterval(-(30 * 24 * 60 * 60))
+        
+        let parameters: Parameters = [
+            "itemsPerPage": 2500,
+            "startDate": thirtyDaysAgo.ISO8601Format(),
+            "endDate": Date.now.ISO8601Format()
+        ]
+        
+        let response = try await client.request(
+            server.apiUrl + "/short-urls/\(item.shortCode)/visits",
+            parameters: parameters
+        ).validate()
+            .serializingDecodable(GetVisitsResponse.self, decoder: self.decoder)
+            .value
+        
+        return response.visits.data
+    }
+    
     // MARK: Server stats
     
     /// Get general visits stats not linked to one specific short URL.

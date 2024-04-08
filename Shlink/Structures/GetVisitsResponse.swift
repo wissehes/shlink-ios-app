@@ -18,4 +18,26 @@ extension ShlinkAPI {
         let visitsCount: Int
     }
     
+    struct GetVisitsResponse: Codable {
+        let visits: GetVisitsResponseData
+    }
+    
+    struct GetVisitsResponseData: Codable {
+        let data: [Visit]
+//        let pagination: ..
+    }
+    
+    struct Visit: Codable {
+        let referer: String?
+        let date: Date
+        let userAgent: String
+        let visitLocation: Location?
+        let potentialBot: Bool
+        
+        struct Location: Codable {
+            let cityName, countryCode, countryName: String
+            let latitude, longitude: Double
+            let regionName, timezone: String
+        }
+    }
 }
