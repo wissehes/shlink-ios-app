@@ -76,10 +76,10 @@ final class ShlinkAPI {
     // MARK: Server stats
     
     /// Get general visits stats not linked to one specific short URL.
-    func getVisits() async throws -> Visits {
+    func getVisits() async throws -> GeneralVisits {
         let data = try await client.request(server.apiUrl + "/visits")
             .validate()
-            .serializingDecodable(GetVisitsResponse.self)
+            .serializingDecodable(GetGeneralVisitsResponse.self)
             .value
         
         return data.visits

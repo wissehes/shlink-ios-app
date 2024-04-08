@@ -9,11 +9,11 @@ import Foundation
 
 extension ShlinkAPI {
  
-    struct GetVisitsResponse: Codable {
-        let visits: Visits
+    struct GetGeneralVisitsResponse: Codable {
+        let visits: GeneralVisits
     }
     
-    struct Visits: Codable {
+    struct GeneralVisits: Codable {
         let orphanVisitsCount: Int
         let visitsCount: Int
     }

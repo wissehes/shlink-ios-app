@@ -16,7 +16,7 @@ import SwiftUI
     
     var items: [ShlinkAPI.ShortURL]?
     
-    var visits: ShlinkAPI.Visits?
+    var visits: ShlinkAPI.GeneralVisits?
     
     var isLoading = true
     var error: Error?
