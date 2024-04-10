@@ -23,6 +23,11 @@ struct ServersOverview: View {
             }
         }
             .navigationTitle("Servers")
+            .overlay {
+                if servers.isEmpty {
+                    self.noServers
+                }
+            }
             .sheet(isPresented: $showingAddServerSheet, content: AddServerView.init)
             .toolbar {
                 Button("Add server", systemImage: "plus.circle") {
@@ -33,6 +38,20 @@ struct ServersOverview: View {
 //                HomeView.init(server: server)
 //            }
         
+    }
+    
+    var noServers: some View {
+        ContentUnavailableView {
+            Label("No servers", systemImage: "server.rack")
+                .symbolVariant(.slash)
+        } description: {
+            Text("You haven't added any Shlink servers yet.")
+        } actions: {
+            Button("Add server", systemImage: "plus") {
+                showingAddServerSheet.toggle()
+            }
+                .buttonStyle(.borderedProminent)
+        }
     }
     
     func itemView(_ server: Server) -> some View {
