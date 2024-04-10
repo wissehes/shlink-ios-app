@@ -76,12 +76,11 @@ struct VisitsView: View {
                         x: .value("Date", $0.date, unit: .day),
                         y: .value("Visits", $0.visits)
                     ).interpolationMethod(.cardinal)
-                        .chartXSc
                 }
             } else {
-                ProgressView("Loading...")            }
-        }
-            .task(id: url.shortCode) { await self.loadData() }
+                ProgressView("Loading...")
+            }
+        }.task(id: url.shortCode) { await self.loadData() }
     }
 }
 
