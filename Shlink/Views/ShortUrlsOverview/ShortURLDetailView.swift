@@ -53,34 +53,56 @@ struct ShortURLDetailView: View {
                 
             }.buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
-        }.listRowBackground(Color.clear)
+        }.contentMargins(.leading, 10, for: .scrollContent)
     }
     
     var body: some View {
-        List {
-            if let url = item.shortURL?.absoluteString {
-                Label(url, systemImage: "link")
-                    .accessibilityLabel("Short URL: \(url)")
-            }
+        ScrollView {
             
-            if let url = item.longURL?.absoluteString {
-                Label(url, systemImage: "arrow.right")
-                    .accessibilityLabel("Long URL: \(url)")
-                    .lineLimit(showingFullLongUrl ? nil : 1)
-                    .onTapGesture {
-                        showingFullLongUrl.toggle()
+            VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading) {
+                    Section {
+                        actions
+                    } header: {
+                        Text("Actions")
+                            .font(.headline)
+                            .padding(.horizontal)
                     }
-            }
-            
-            Section("Actions") {
-                actions
-            }
-            
-            Section("Statistics") {
-                VisitsView(url: item, server: server)
-                    .padding()
+                }
+                
+                VStack(alignment: .leading, spacing: 20) {
+                    VStack(alignment: .leading, spacing: 10) {
+                        if let url = item.shortURL?.absoluteString {
+                            Label(url, systemImage: "link")
+                                .accessibilityLabel("Short URL: \(url)")
+                            
+                            Divider()
+                        }
+                        
+                        if let url = item.longURL?.absoluteString {
+                            Label(url, systemImage: "arrow.right")
+                                .accessibilityLabel("Long URL: \(url)")
+                                .lineLimit(showingFullLongUrl ? nil : 1)
+                                .onTapGesture {
+                                    showingFullLongUrl.toggle()
+                                }
+                        }
+                    }.padding()
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .background(Color(UIColor.secondarySystemGroupedBackground))
+                        .clipShape(.rect(cornerRadius: 10))
+                    
+                    Section {
+                        VisitsView(url: item, server: server)
+                            .padding()
+                    } header: {
+                        Text("Statistics")
+                            .font(.headline)
+                    }
+                }.padding(.horizontal)
             }
         }.navigationTitle("Short URL")
+            .background(Color(UIColor.systemGroupedBackground))
     }
     
     private func delete() async {
