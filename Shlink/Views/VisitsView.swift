@@ -27,25 +27,30 @@ struct VisitsView: View {
     @State private var visits: [ShlinkAPI.Visit]?
     
     var visitsPerDay: [VisitDay] {
+        // Make sure all visits are present and sorted
         guard
             let visits = visits?.sorted(by: { $0.date.compare($1.date) == .orderedAscending })
         else { return [] }
         
+        // Make sure the earliest and latest date exist
         guard
             let earliestDate = visits.first?.date,
             let latestDate = visits.last?.date
         else { return [] }
         
+        // Calculate the days between the first and last visit
         guard let daysBetween = Calendar.current.dateComponents([.day], from: earliestDate, to: latestDate).day else { return [] }
 
         var days: [VisitDay] = []
         
+        // Create an empty VisitDay for each day
         for i in 0...daysBetween {
             guard let newDate = Calendar.current.date(byAdding: .day, value: i, to: earliestDate) else { continue }
             
             days.append(.init(date: newDate, visits: 0))
         }
         
+        // Go through all visits and append the amount of visits in that day
         for visit in visits {
             if let foundDay = days.first(where: { day in
                 Calendar.current.isDate(day.date, inSameDayAs: visit.date)
@@ -55,7 +60,7 @@ struct VisitsView: View {
                 days.append(.init(date: visit.date, visits: 1))
             }
         }
-        
+
         return days
     }
     
@@ -75,7 +80,29 @@ struct VisitsView: View {
                     LineMark(
                         x: .value("Date", $0.date, unit: .day),
                         y: .value("Visits", $0.visits)
-                    ).interpolationMethod(.cardinal)
+                    ).interpolationMethod(.catmullRom)
+                }.chartXAxis {
+                    // Customize the X Axis marks
+                    AxisMarks(values: .stride(by: .day, count: 2)) { value in
+                        if let date = value.as(Date.self) {
+                            let day = Calendar.current.component(.day, from: date)
+                            
+                            switch day {
+                            case 1, 2:
+                                AxisValueLabel(format: .dateTime.month().day())
+
+                            default:
+                                if value.index == 0 {
+                                    AxisValueLabel(format: .dateTime.month().day())
+                                } else {
+                                    AxisValueLabel(format: .dateTime.day())
+                                }
+                            }
+                        }
+                        
+                        AxisGridLine()
+                        AxisTick()
+                    }
                 }
             } else {
                 ProgressView("Loading...")
